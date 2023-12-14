@@ -9,16 +9,17 @@ export default function AppLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
   return (
-    <div className="layout">
+    <div className="grid grid-rows-[auto_1fr_auto]  h-screen ">
       {isLoading && <Loading />}
 
       <Header />
-      <SearchOrder />
+      <div className="overflow-scroll ">
+        {" "}
+        <main className="max-w-3xl mx-auto ">
+          <Outlet />
+        </main>
+      </div>
 
-      <main>
-        <h1>content</h1>
-        <Outlet />
-      </main>
       <CartOverview />
     </div>
   );
